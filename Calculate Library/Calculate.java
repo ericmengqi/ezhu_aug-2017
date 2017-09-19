@@ -41,7 +41,7 @@ public class Calculate {
 	 * This method returns the values of the discriminant from the coefficients of a
 	 * quadratic equation
 	 */
-	public static double discriminant(double operandA, double operandB, double operandC) {
+	 public static double discriminant(double operandA, double operandB, double operandC) {
 		return operandB * operandB - 4 * operandA * operandC;
 	}
 
@@ -112,6 +112,54 @@ public class Calculate {
 		 double c = b;
 		 return a = c/100;
 		}
+	
+	//This method raises a value to a positive integer power.
+	public static double exponent (double a, int b) {
+		double newNum = a;
+		for (int i =  1; i <= b ; i++) {
+			newNum *= a;
+		}
+		return newNum;
+	}
+	
+	//This method returns the factorial of the value given.
+	public static int factorial (int a) {
+		int newNum = a;
+		for (int i = 1; i < a; i++) {
+			newNum = newNum * (a-i);
+		}
+		return newNum;
+	}
+	
+	public static boolean isPrime (int a) {
+		for (int i = 2; i < a; i++) {
+			
+			if(isDivisibleBy (a, i) == true) {
+				return false;
+			}
+		}
+		return true;
+		
+	}
+	
+	public static int gcf (int a, int b) {
+		if (isDivisibleBy(a, b)){
+			return b;
+		}
+		else{
+			return gcf(b, a%b);
+		}
+	}
+	
+	public static double sqrt(double a){
+		double num1;
+		double root = a / 2;
+		do {
+			num1 = root;
+			root = (num1 + (a / num1)) / 2.0;
+		} while ((num1 - root) != 0);
+		return round2(root);
+	}
 }
 
 
