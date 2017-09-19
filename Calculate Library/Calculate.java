@@ -131,6 +131,7 @@ public class Calculate {
 		return newNum;
 	}
 	
+	//This method indicates whether an integer is prime or not 
 	public static boolean isPrime (int a) {
 		for (int i = 2; i < a; i++) {
 			
@@ -142,6 +143,7 @@ public class Calculate {
 		
 	}
 	
+	//This method provides the greatest common factor between two integers
 	public static int gcf (int a, int b) {
 		if (isDivisibleBy(a, b)){
 			return b;
@@ -151,6 +153,7 @@ public class Calculate {
 		}
 	}
 	
+	//This method provides the square root of a double
 	public static double sqrt(double a){
 		double num1;
 		double root = a / 2;
