@@ -180,31 +180,22 @@ public class Calculate {
 	 * quadratic formula to approximate the real roots
 	 */
 	public static String quadForm(int a, int b, int c) {
-		double calcRoot1 = 0;
-		double calcRoot2 = 0;
-		// Cast integers to double in order to have more precise calculations.
-		double ax = (double) a;
-		double by = (double) b;
-		double cz = (double) c;
-		String finalRoot1 = "";
-		String finalRoot2 = "";
 		if (discriminant(a, b, c) < 0) {
 			return "no real roots";
 		} else if (discriminant(a, b, c) == 0) {
-			calcRoot1 = -b / (2 * a);
-			finalRoot1 = String.valueOf(round2(calcRoot1));
-			return finalRoot1;
+			String root = round2(-b / (2 * a)) + "";
+			return root;
 		} else {
-			calcRoot1 = (-by + sqrt(discriminant(ax, by, cz))) / (2 * ax);
-			calcRoot2 = (-by + sqrt(discriminant(ax, by, cz))) / (2 * ax);
-			if (calcRoot1 < calcRoot2) {
-				finalRoot1 = String.valueOf(round2(calcRoot1));
-				finalRoot2 = String.valueOf(round2(calcRoot2));
-				return finalRoot1 + "and" + finalRoot2;
-			} else
-				finalRoot1 = String.valueOf(round2(calcRoot1));
-			finalRoot2 = String.valueOf(round2(calcRoot2));
-			return finalRoot2 + "and" + finalRoot1;
+			double root1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a);
+			double root2 = (-b - sqrt(discriminant(a, b, c))) / (2 * a);
+			if (root1 < root2) {
+				String roots = round2(root1) + " and " + round2(root2);
+				return roots;
+				
+			} else {
+				String roots = round2(root1) + " and " + round2(root2);
+				return roots;
 		}
 	}
+}
 }
