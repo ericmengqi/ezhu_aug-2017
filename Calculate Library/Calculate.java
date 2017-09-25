@@ -142,14 +142,9 @@ public class Calculate {
 		}
 		return newNum;
 	}
-<<<<<<< HEAD
 
-	public static boolean isPrime(int a) {
-=======
-	
 	//This method indicates whether an integer is prime or not 
 	public static boolean isPrime (int a) {
->>>>>>> branch 'master' of https://github.com/ericmengqi/ezhu_aug-2017.git
 		for (int i = 2; i < a; i++) {
 
 			if (isDivisibleBy(a, i) == true) {
@@ -159,32 +154,21 @@ public class Calculate {
 		return true;
 
 	}
-<<<<<<< HEAD
-
-	public static int gcf(int a, int b) {
-		if (isDivisibleBy(a, b)) {
-=======
 	
 	//This method provides the greatest common factor between two integers
 	public static int gcf (int a, int b) {
 		if (isDivisibleBy(a, b)){
->>>>>>> branch 'master' of https://github.com/ericmengqi/ezhu_aug-2017.git
 			return b;
 		} else {
 			return gcf(b, a % b);
 		}
 	}
-<<<<<<< HEAD
 
-	public static double sqrt(double a) {
+	//This method provides the square root of a double
+	public static double sqrt(double a){
 		if (a < 0) {
 			throw new IllegalArgumentException("Input is negative, cannot take square root of negative number");
 		}
-=======
-	
-	//This method provides the square root of a double
-	public static double sqrt(double a){
->>>>>>> branch 'master' of https://github.com/ericmengqi/ezhu_aug-2017.git
 		double num1;
 		double root = a / 2;
 		do {
