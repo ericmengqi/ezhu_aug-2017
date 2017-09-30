@@ -42,18 +42,22 @@ public class Calculate {
 	 * quadratic equation
 	 */
 	public static double discriminant(double a, double b, double c) {
+		//Equation for discriminant is b^2-4ac.
 		return b * b - 4 * a * c;
 	}
 
 	// This method converts a mixed number into an improper fraction
-	public static String toImproperFrac(int a, int b, int c) {
-		int newNum = (a * c) + b;
-		return newNum + "/" + c;
+	public static String toImproperFrac(int whole, int numerator, int denominator) {
+		//Calculates the numerator.
+		int newNum = (whole * denominator) + numerator;
+		return newNum + "/" + denominator;
 	}
 
 	// This method converts an improper fraction into a mixed number
 	public static String toMixedNum(int a, int b) {
+		//Calculates the numerator
 		int remain = a % b;
+		//Calculates the whole number.
 		int newNum = a / b;
 		return newNum + " " + remain + "/" + b;
 	}
@@ -112,20 +116,21 @@ public class Calculate {
 	// This method rounds a double correctly to 2 decimal places.
 	public static double round2(double a) {
 		a = a * 100;
+		//Cast as integer to eliminate any numbers after the hundreths place.
 		int b = (int) a;
 		double c = b;
 		return a = c / 100;
 	}
 
 	// This method raises a value to a positive integer power.
-	public static double exponent(double a, int b) {
+	public static double exponent(double base, int power) {
 		// Checks if exponent is negative.
-		if (b < 1) {
+		if (power < 1) {
 			throw new IllegalArgumentException("Input is negative, cannot take value to negative power");
 		}
-		double newNum = a;
-		for (int i = 1; i <= b; i++) {
-			newNum *= a;
+		double newNum = base;
+		for (int i = 1; i <= power; i++) {
+			newNum *= base;
 		}
 		return newNum;
 	}
@@ -146,7 +151,7 @@ public class Calculate {
 	//This method indicates whether an integer is prime or not 
 	public static boolean isPrime (int a) {
 		for (int i = 2; i < a; i++) {
-
+			//Checks to see if any number other than itself is divisible.
 			if (isDivisibleBy(a, i) == true) {
 				return false;
 			}
@@ -186,11 +191,17 @@ public class Calculate {
 		if (discriminant(a, b, c) < 0) {
 			return "no real roots";
 		} else if (discriminant(a, b, c) == 0) {
+			/*
+			 * With discriminant equal to zero, the rest of the
+			 * quadratic equation will be -b / 2a. 
+			 */
 			String root = round2(-b / (2 * a)) + "";
 			return root;
 		} else {
+			//Evaluate for both roots
 			double root1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a);
 			double root2 = (-b - sqrt(discriminant(a, b, c))) / (2 * a);
+			//Evaluate which root is greater in order to place from least to greatest.
 			if (root1 < root2) {
 				String roots = round2(root1) + " and " + round2(root2);
 				return roots;
